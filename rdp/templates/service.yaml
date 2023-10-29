@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: rdp
       protocol: TCP
-      name: http
+      name: rdp
   selector:
     {{- include "rdp.selectorLabels" . | nindent 4 }}

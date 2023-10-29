@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
 data:
-  PASSWORD_ACCESS: true
-  USER_NAME: linux
-  USER_PASSWORD: xunil
+  PASSWORD_ACCESS: "true"
+  USER_NAME: "linux"
+  USER_PASSWORD: "xunil"

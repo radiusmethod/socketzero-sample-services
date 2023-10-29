@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: scotthardy/docker-remote-desktop
+  repository: scottyhardy/docker-remote-desktop
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""

@@ -34,7 +34,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: mysql
+            - name: mariadb
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           envFrom:
@@ -42,10 +42,10 @@ spec:
                 name: {{ .Release.Name }}-configmap
           livenessProbe:
             tcpSocket:
-              port: mysql
+              port: mariadb
           readinessProbe:
             tcpSocket:
-              port: mysql
+              port: mariadb
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

@@ -4,4 +4,4 @@ metadata:
   name: {{ .Release.Name }}-configmap
 data:
   MARIADB_ROOT_PASSWORD: "toor"
-  MARIADB_ROOT_HOST: "%"
+#  MARIADB_ROOT_HOST: "%"

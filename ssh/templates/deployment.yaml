@@ -48,6 +48,17 @@ spec:
               port: ssh
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: sshd-config-volume
+              mountPath: /etc/ssh/sshd_config
+              subPath: sshd_config
+      volumes:
+        - name: sshd-config-volume
+          configMap:
+            name: {{ .Release.Name }}-sshd-config
+            items:
+              - key: sshd_config
+                path: sshd_config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

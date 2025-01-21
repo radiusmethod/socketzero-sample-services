@@ -50,7 +50,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: sshd-config-volume
-              mountPath: /etc/ssh/sshd_config
+              mountPath: /config/sshd/sshd_config
               subPath: sshd_config
       volumes:
         - name: sshd-config-volume

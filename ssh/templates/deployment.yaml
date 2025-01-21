@@ -49,16 +49,16 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: sshd-config-volume
-              mountPath: /config/sshd/sshd_config
-              subPath: sshd_config
+            - name: custom-cont-init-volume
+              mountPath: /config/custom-cont-init.d/forwarding
+              subPath: custom_cont_init
       volumes:
-        - name: sshd-config-volume
+        - name: custom-cont-init-volume
           configMap:
-            name: {{ .Release.Name }}-sshd-config
+            name: {{ .Release.Name }}-custom-cont-init
             items:
-              - key: sshd_config
-                path: sshd_config
+              - key: custom_cont_init
+                path: custom_cont_init
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

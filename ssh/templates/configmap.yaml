@@ -6,3 +6,4 @@ data:
   PASSWORD_ACCESS: "true"
   USER_NAME: "linux"
   USER_PASSWORD: "xunil"
+  DOCKER_MODS: "linuxserver/mods:openssh-server-ssh-tunnel"

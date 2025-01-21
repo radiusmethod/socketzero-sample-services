@@ -48,17 +48,6 @@ spec:
               port: ssh
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts:
-            - name: custom-cont-init-volume
-              mountPath: /config/custom-cont-init.d/forwarding
-              subPath: custom_cont_init
-      volumes:
-        - name: custom-cont-init-volume
-          configMap:
-            name: {{ .Release.Name }}-custom-cont-init
-            items:
-              - key: custom_cont_init
-                path: custom_cont_init
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
